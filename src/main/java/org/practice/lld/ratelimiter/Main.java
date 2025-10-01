@@ -95,6 +95,7 @@ class FixedWindowRateLimiter implements RateLimiterStrategy{
             return true;
         }
 
+
         if(currUserWindow.getCount() < MAX_REQUEST_COUNT){
             currUserWindow.setCount(currUserWindow.getCount() + 1);
             map.put(user, currUserWindow);

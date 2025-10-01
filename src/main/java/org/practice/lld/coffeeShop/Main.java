@@ -45,13 +45,21 @@ enum CoffeeFlavours{
     CAPUCCHINO, CHOCOFILL, CREAMFILL;
 }
 
-class CoffeeRequest{
-    CoffeeTypes type;
-    List<CoffeeFlavours> flavours;
+final class CoffeeRequest{
+    private final CoffeeTypes type;
+    private final List<CoffeeFlavours> flavours;
 
     public CoffeeRequest(CoffeeTypes type, List<CoffeeFlavours> flavours) {
         this.type = type;
         this.flavours = flavours;
+    }
+
+    public List<CoffeeFlavours> getFlavours() {
+        return new ArrayList<>(flavours);
+    }
+
+    public CoffeeTypes getType() {
+        return type;
     }
 
     static class Builder{
@@ -80,14 +88,14 @@ class CoffeeRequest{
 
 class CoffeeMachine{
     Coffee makeCoffee(CoffeeRequest request){
-        Coffee base = switch (request.type){
+        Coffee base = switch (request.getType()){
             case LARGE -> new LargeCoffee();
             case SMALL -> new SmallCoffee();
             case MEDIUM -> new MediumCoffee();
             default -> throw new IllegalArgumentException("Please Provide a valid coffee type");
         };
 
-        for (CoffeeFlavours f : request.flavours){
+        for (CoffeeFlavours f : request.getFlavours()){
             base = switch (f){
                 case CAPUCCHINO -> new Capucchino(base);
                 case CHOCOFILL -> new ChocoFill(base);
