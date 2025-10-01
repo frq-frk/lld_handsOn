@@ -17,6 +17,8 @@ enum LogLevel{
     INFO, DEBUG, ERROR;
 }
 
+//MODEL
+
 class Log{
     LogLevel logLevel;
     String msg;
@@ -38,6 +40,8 @@ class Log{
         return logLevel.toString() + ": [" + new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()) + "] " + msg;
     }
 }
+
+//Controller
 
 abstract class LoggerProcessor{
     LoggerProcessor nextLoggerProcessor;
@@ -97,6 +101,7 @@ class ErrorLogger extends LoggerProcessor{
     }
 }
 
+//Facade
 class Logger{
     private Logger(){}
     static Logger instance;

@@ -163,6 +163,7 @@ class FarthestFirstParkingStrategy implements ParkingStrategy{
     public ParkingSlot findSlot(List<ParkingLevel> levels, VehicleTypes type) {
         Collections.reverse(levels);
         for(ParkingLevel level : levels){
+            Collections.reverse(level.getSlots());
             for(ParkingSlot slot : level.getSlots()){
                 if(slot.isCompatible(type)) return slot;
             }

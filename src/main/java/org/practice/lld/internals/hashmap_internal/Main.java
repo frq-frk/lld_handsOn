@@ -1,4 +1,4 @@
-package org.practice.lld.hashmap_internal;
+package org.practice.lld.internals.hashmap_internal;
 
 import java.util.LinkedList;
 
