@@ -20,7 +20,6 @@ public class Main {
         }catch (InterruptedException e){
 
         }
-
     }
 }
 
@@ -159,6 +158,7 @@ class SlidingWindowRateLimiter implements RateLimiterStrategy{
             return false;
         }
         q.addLast(currTime);
+        timeWindow.put(user, q);
         return true;
     }
 }

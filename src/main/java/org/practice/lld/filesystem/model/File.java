@@ -12,7 +12,7 @@ public class File implements FileSystemUnit{
 
     @Override
     public void ls() throws OperationNotSupportedException {
-        throw new OperationNotSupportedException();
+        System.out.println(name);
     }
 
     @Override

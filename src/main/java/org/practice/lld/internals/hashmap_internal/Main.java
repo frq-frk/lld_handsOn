@@ -23,6 +23,14 @@ class HashMapCustom<K, V>{
 
     int cap;
 
+    /**
+     *          64 32 16 8 4 2 1
+     *  0 0 0  0  0  0  0  1 1 0
+     *
+     *
+     *
+     * */
+
     HashMapCustom(){
         map = new LinkedList [DEFAULT_CAPACITY];
     }

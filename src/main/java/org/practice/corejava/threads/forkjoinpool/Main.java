@@ -32,7 +32,7 @@ class Task extends RecursiveTask<Integer>{
 
     @Override
     protected Integer compute() {
-        if(end - start >= 4){
+        if(end - start <= 4){
 
             int ans =0;
 
